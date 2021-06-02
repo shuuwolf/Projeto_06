@@ -23,6 +23,14 @@
                 <div class="logo">
                     LogoMarca
                 </div><!-- /logo -->
+                <nav class="mobile">
+                    <i class="fa fa-bars"></i>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav><!-- /mobile -->
                 <nav class="desktop">
                     <ul>
                         <li><a href="#">Home</a></li>
@@ -47,7 +55,7 @@
                 <h2>Confira nossos planos</h2>
             </div><!-- /center -->
         </div><!-- /chamada-planos -->
-        <section class="box-planos">
+        <section class="box-planos hideme">
             <div class="center">
                 <div class="box-planos-single">
                     <div class="box-planos-wraper">
@@ -161,6 +169,32 @@
             <div class="clear"></div><!-- /Clearing float -->
         </div><!-- /center -->
     </section><!-- /final-section -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('nav.mobile i').click(function(){
+                var el = $(this).parent().find('ul');
+                if(el.is(':visible') == false){
+                    el.fadeIn();
+                }else{
+                    el.fadeOut();
+                }
+            })
 
+            $(window).scroll( function(){
+            /* Check the location of each desired element */
+                $('.hideme').each( function(i){
+            
+                    var bottom_of_object = $(this).offset().top - 500 + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                    /* If the object is completely visible in the window, fade it it */
+                    if( bottom_of_window > bottom_of_object ){
+                        $(this).animate({'opacity':'1'},2000);
+                    }
+                }); 
+            });
+        })
+    </script>
 </body>
 </html>
