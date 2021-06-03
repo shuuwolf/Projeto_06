@@ -384,6 +384,14 @@ section.final-section h2:hover > .border-efeito{
 	margin-top: 8px;
 }
 
+footer{
+	width: 100%;
+	padding: 10px 2%;
+	background: #444;
+	color: white;
+	text-align: center;
+}
+
 /***MEDIA SCREENS***/
 
 @media screen and (max-width: 768px){
